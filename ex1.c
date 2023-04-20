@@ -32,11 +32,20 @@ int main(){
 	insereFin(&L2,7);
 	insereFin(&L2,4);
 	insereFin(&L2,5);
+	// before
+	puts("\nbefore");
+	printf("Liste L1: ");
+	affiche(L1);
+	printf("Liste L2: ");
+	affiche(L2);
 	// 
 	Union_Intersection(&L1,&L2);
-	puts("l1");
+	// 
+	// after
+	puts("\nafter");
+	printf("Liste L1: ");
 	affiche(L1);
-	puts("l2");
+	printf("Liste L2: ");
 	affiche(L2);
 
 	return 0;
@@ -114,13 +123,18 @@ void insereFin(Liste *L,int info){
 }
 
 void affiche(Liste L){
-	puts("\n====================");
+	printf("[ ");
 	while (L != NULL)
 	{
-		printf("%d ,",L->info);
+		printf("%d ",L->info);
+		if (L->suivant)
+		{
+			printf(",");
+		}
+		
 		L = L->suivant;
 	}
-	puts("\n====================");
+	printf("]\n");
 }
 
 
